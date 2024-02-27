@@ -41,3 +41,404 @@ Service : DAT DPE>SV Coord. des creches>ST Naclieres
 
 Lieu d'installation : DSI
 
+<!DOCTYPE html>
+<html lang="fr"><head><title>GLPI - Tickets - 46236</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name='viewport' content='width=device-width, initial-scale=1'><link rel="stylesheet" type="text/css" href="/lib/jquery/css/smoothness/jquery-ui-1.10.4.custom.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/css/jstree-glpi.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/jqueryplugins/select2/css/select2.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/jqueryplugins/qtip2/jquery.qtip.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/leaflet.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/plugins/Leaflet.markercluster/MarkerCluster.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/plugins/Leaflet.markercluster/MarkerCluster.Default.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/plugins/Leaflet.awesome-markers/leaflet.awesome-markers.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/plugins/leaflet-control-osm-geocoder/Control.OSMGeocoder.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/leaflet/plugins/Leaflet.fullscreen/leaflet.fullscreen.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/lib/jqueryplugins/rateit/rateit.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/css/jquery-glpi.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/css/styles.min.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/css/palettes/fontenay.css?v=9.3.4" media="all"><link rel="stylesheet" type="text/css" href="/css/print.min.css?v=9.3.4" media="print"><link rel='shortcut icon' type='images/x-icon' href='/pics/favicon.ico' >
+<link rel="stylesheet" type="text/css" href="/plugins/mreporting/css/mreporting.min.css?v=1.5.3" media="all"><link rel="stylesheet" type="text/css" href="/plugins/mreporting/lib/font-awesome-4.2.0/css/font-awesome.min.css?v=1.5.3" media="all"><link rel="stylesheet" type="text/css" href="/plugins/mreporting/lib/jquery.tipsy/jquery.tipsy.css?v=1.5.3" media="all"><link rel="stylesheet" type="text/css" href="/plugins/manufacturersimports/manufacturersimports.css?v=2.1.2" media="all"><script type="text/javascript" src="/lib/jquery/js/jquery-1.10.2.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jquery/js/jquery-ui-1.10.4.custom.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/select2/js/select2.full.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/qtip2/jquery.qtip.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/jquery-ui-timepicker-addon/jquery-ui-timepicker-addon.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/autogrow/jquery.autogrow-textarea.min.js?v=9.3.4"></script></head>
+<body class='layout_lefttab form'><div id='header'><div id='header_top'><div id='c_logo'><a href="/front/central.php" accesskey="1" title="Accueil"></a></div><div id='c_preference' ><ul><li id='deconnexion'><a href='/front/logout.php?noAUTO=1' title="D&eacute;connexion" class='fa fa-sign-out'><span class='sr-only'>D&eacute;connexion></span></a></li>
+<li id='preferences_link'><a href='/front/preference.php' title="Mes pr&eacute;f&eacute;rences" class='fa fa-cog'><span class='sr-only'>Mes pr&eacute;f&eacute;rences</span><span id='myname'>GHANMI Younes</span></a></li><li id='bookmark_link'><script type='text/javascript'>
+$(function() {$('<div id=\'showSavedSearches\' class=\'slidepanel onright\'><div class="header"><button type=\'button\' class=\'close ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close\' title=\'Fermer\'><span class=\'ui-button-icon-primary ui-icon ui-icon-closethick\'></span><span class=\'ui-button-text\'>Fermer</span></button><a href=\'/front/savedsearch.php\'><img class=\'icon\' src=\'/pics/menu_config.png\' alt=\'Gérer les recherches sauvegardées\' title=\'Gérer les recherches sauvegardées\'/></a><h3>Recherches sauvegardées</h3></div><div class=\'contents\'></div></div>')
+         .hide()
+         .appendTo('body');
+$('#showSavedSearches .close').on('click', function() {
+         $('#showSavedSearches').hide(
+            'slow',
+            function () {
+               $(this).find('.contents').empty();
+            }
+         );
+       });
+$('#showSavedSearchesLink').on('click', function() {
+         $('#showSavedSearches').show(
+            'slow',
+            function() {
+               _loadshowSavedSearches();
+            }
+         );
+      });
+});var _loadshowSavedSearches = function() {
+            $.ajax({
+               url: '/ajax/savedsearch.php?action=show',
+               beforeSend: function() {
+                  var _loader = $('<div id=\'loadingslide\'><div class=\'loadingindicator\'>Chargement...</div></div>');
+                  $('#showSavedSearches .contents').html(_loader);
+               }
+            })
+            .always( function() {
+               $('#loadingslide').remove();
+            })
+            .done(function(res) {
+               $('#showSavedSearches .contents').html(res);
+            });
+         };
+</script><a href='#' id='showSavedSearchesLink' class='fa fa-star' title="Charger une recherche sauvegard&eacute;e"><span class='sr-only'>Recherches sauvegardées</span></a></li><li id='help_link'><a href='http://glpi-project.org/help-central' target='_blank' title="Aide" class='fa fa-question'><span class='sr-only'>Aide</span></a></li><li id='language_link'><a href='/front/preference.php?forcetab=User$1' title="Français">Français</a></li><li id='c_recherche'>
+<form method='get' action='/front/search.php'>
+<span id='champRecherche'><input size='15' type='text' name='globalsearch'
+                                          placeholder='Rechercher'><button type='submit' name='globalsearchglass'><i class='fa fa-search'></i></button></span>
+<input type="hidden" name="_glpi_csrf_token" value="283a8db1dc16f70c762a703a5c4fbf33" />
+</form>
+</li></ul></div>
+</div><div id='c_menu'><ul id='menu' class='fullmenu'><li id='menu1' data-id='1' class=''><a href='/front/computer.php' class='itemP'>Parc</a><ul class='ssmenu'><li class=''><a href='/front/computer.php' accesskey='o'><u>O</u>rdinateurs</a></li>
+<li class=''><a href='/front/monitor.php'>Moniteurs</a></li>
+<li class=''><a href='/front/software.php' accesskey='s'>Logiciel<u>s</u></a></li>
+<li class=''><a href='/front/networkequipment.php'>Matériels réseau</a></li>
+<li class=''><a href='/front/peripheral.php'>Périphériques</a></li>
+<li class=''><a href='/front/printer.php'>Imprimantes</a></li>
+<li class=''><a href='/front/phone.php'>Téléphones</a></li>
+<li class=''><a href='/plugins/simcard/front/simcard.php'>Cartes SIM</a></li>
+<li class=''><a href='/front/allassets.php'>Global</a></li>
+</ul></li><li id='menu2' data-id='2' class='active'><a href='/front/ticket.php' class='itemP'>Assistance</a><ul class='ssmenu'><li class='active'><a href='/front/ticket.php' accesskey='t'><u>T</u>ickets</a></li>
+<li class=''><a href='/front/ticket.form.php'>Créer un ticket</a></li>
+<li class=''><a href='/front/problem.php'>Problèmes</a></li>
+<li class=''><a href='/front/change.php'>Changements</a></li>
+<li class=''><a href='/front/planning.php'>Planning</a></li>
+<li class=''><a href='/front/stat.php' accesskey='a'>St<u>a</u>tistiques</a></li>
+<li class=''><a href='/front/ticketrecurrent.php' accesskey='n'>Tickets récurre<u>n</u>ts</a></li>
+</ul></li><li id='menu3' data-id='3' class=''><a href='/front/softwarelicense.php' class='itemP'>Gestion</a><ul class='ssmenu'><li class=''><a href='/front/softwarelicense.php'>Lice<u>n</u>ces</a></li>
+<li class=''><a href='/front/supplier.php'>Fournisseurs</a></li>
+<li class=''><a href='/front/contact.php'>Contacts</a></li>
+<li class=''><a href='/front/contract.php'>Contrat</a></li>
+<li class=''><a href='/front/document.php' accesskey='d'><u>D</u>ocuments</a></li>
+</ul></li><li id='menu4' data-id='4' class=''><a href='/front/project.php' class='itemP'>Outils</a><ul class='ssmenu'><li class=''><a href='/front/project.php'>Projets</a></li>
+<li class=''><a href='/front/reminder.php'>Notes personnelles</a></li>
+<li class=''><a href='/front/rssfeed.php'>Flux RSS personnels</a></li>
+<li class=''><a href='/front/knowbaseitem.php' accesskey='b'><u>B</u>ase de connaissances</a></li>
+<li class=''><a href='/plugins/datainjection/front/clientinjection.form.php'>Injection de fichiers</a></li>
+<li class=''><a href='/plugins/mreporting/front/central.php'>Plus de rapports</a></li>
+</ul></li><li id='menu5' data-id='5' class=''><a href='/front/user.php' class='itemP'>Administration</a><ul class='ssmenu'><li class=''><a href='/front/user.php' accesskey='u'><u>U</u>tilisateurs</a></li>
+<li class=''><a href='/front/group.php' accesskey='g'><u>G</u>roupes</a></li>
+<li class=''><a href='/front/rule.php'>Règles</a></li>
+</ul></li><li id='menu6' data-id='6' class=''><a href='/front/dropdown.php' class='itemP'>Configuration</a><ul class='ssmenu'><li class=''><a href='/front/dropdown.php'>I<u>n</u>titulés</a></li>
+</ul></li></ul><div id='show_all_menu' class='invisible'><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/computer.php' title="Parc" class='itemP'>Parc</a></dt><dd><a href='/front/computer.php'>Ordinateurs</a></dd><dd><a href='/front/monitor.php'>Moniteurs</a></dd><dd><a href='/front/software.php'>Logiciels</a></dd><dd><a href='/front/networkequipment.php'>Matériels réseau</a></dd><dd><a href='/front/peripheral.php'>Périphériques</a></dd><dd><a href='/front/printer.php'>Imprimantes</a></dd><dd><a href='/front/phone.php'>Téléphones</a></dd><dd><a href='/plugins/simcard/front/simcard.php'>Cartes SIM</a></dd><dd><a href='/front/allassets.php'>Global</a></dd></dl><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/ticket.php' title="Assistance" class='itemP'>Assistance</a></dt><dd><a href='/front/ticket.php'>Tickets</a></dd><dd><a href='/front/ticket.form.php'>Créer un ticket</a></dd><dd><a href='/front/problem.php'>Problèmes</a></dd><dd><a href='/front/change.php'>Changements</a></dd><dd><a href='/front/planning.php'>Planning</a></dd><dd><a href='/front/stat.php'>Statistiques</a></dd><dd><a href='/front/ticketrecurrent.php'>Tickets récurrents</a></dd></dl><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/softwarelicense.php' title="Gestion" class='itemP'>Gestion</a></dt><dd><a href='/front/softwarelicense.php'>Licences</a></dd><dd><a href='/front/supplier.php'>Fournisseurs</a></dd><dd><a href='/front/contact.php'>Contacts</a></dd><dd><a href='/front/contract.php'>Contrat</a></dd><dd><a href='/front/document.php'>Documents</a></dd></dl><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/project.php' title="Outils" class='itemP'>Outils</a></dt><dd><a href='/front/project.php'>Projets</a></dd><dd><a href='/front/reminder.php'>Notes personnelles</a></dd><dd><a href='/front/rssfeed.php'>Flux RSS personnels</a></dd><dd><a href='/front/knowbaseitem.php'>Base de connaissances</a></dd><dd><a href='/plugins/datainjection/front/clientinjection.form.php'>Injection de fichiers</a></dd><dd><a href='/plugins/mreporting/front/central.php'>Plus de rapports</a></dd></dl><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/user.php' title="Administration" class='itemP'>Administration</a></dt><dd><a href='/front/user.php'>Utilisateurs</a></dd><dd><a href='/front/group.php'>Groupes</a></dd><dd><a href='/front/rule.php'>Règles</a></dd></dl><dl><dt class='primary-bg primary-fg'><a class='primary-fg' href='/front/dropdown.php' title="Configuration" class='itemP'>Configuration</a></dt><dd><a href='/front/dropdown.php'>Intitulés</a></dd></dl></div><script type="text/javascript">
+//<![CDATA[
+
+
+         $(document).ready(
+            function() {
+               $('#show_all_menu').dialog({
+                  height: 'auto',
+                  width: 'auto',
+                  modal: true,
+                  autoOpen: false
+               });
+            }
+         );
+      
+
+//]]>
+</script><a href='#' onClick="$('#show_all_menu').dialog('open'); return false;"
+            id='menu_all_button' class='button-icon'></a></div><div id='c_ssmenu2' ><ul><li class='breadcrumb_item'><a href='/front/central.php' title="Accueil">Accueil</a></li><li class='breadcrumb_item'><a href='/front/ticket.php' title="Assistance">Assistance</a></li><li class='breadcrumb_item'><a href='/front/ticket.php' class='here' title="Tickets" >Tickets</a></li><li class='icons_block'><span><a href='/front/ticket.form.php' class='pointer'
+                                 title='Ajouter'><i class='fa fa-plus'></i>
+                                 <span class='sr-only'>Ajouter</span></a></span><span><a href='/front/ticket.php' class='pointer'
+                                 title='Rechercher'><i class='fa fa-search'></i>
+                                 <span class='sr-only'>Rechercher</span></a></span><span><a href="/front/tickettemplate.php" ><img src="/pics/menu_addtemplate.png" alt="Gérer gabarits..." title="Gérer gabarits..." class='pointer' /></a></span></li><li class="profile-selector"><form name="form" method="post" action="/front/central.php"><select name='newprofile' id='dropdown_newprofile648177860' onChange='submit()' size='1'><option value='6' selected>Support</option><option value='1'>Utilisateurs</option></select><script type="text/javascript">
+//<![CDATA[
+
+$(function() {
+         $('#dropdown_newprofile648177860').select2({
+            
+            width: '150px',
+            dropdownAutoWidth: true,
+            quietMillis: 100,
+            minimumResultsForSearch: 10,
+            matcher: function(params, data) {
+               // If there are no search terms, return all of the data
+               if ($.trim(params.term) === '') {
+                  return data;
+               }
+
+               // Skip if there is no 'children' property
+               if (typeof data.children === 'undefined') {
+                  if (typeof data.text === 'string'
+                     && data.text.toUpperCase().indexOf(params.term.toUpperCase()) >= 0
+                  ) {
+                     if (data.text.indexOf('>') !== -1 || data.text.indexOf('<') !== -1) {
+                        // escape text, if it contains chevrons (can already be escaped prior to this point :/)
+                        data.text = jQuery.fn.select2.defaults.defaults.escapeMarkup(data.text);
+                     }
+
+                     return data;
+                  }
+                  return null;
+               }
+
+               // `data.children` contains the actual options that we are matching against
+               // also check in `data.text` (optgroup title)
+               var filteredChildren = [];
+               $.each(data.children, function (idx, child) {
+                  if (child.text.toUpperCase().indexOf(params.term.toUpperCase()) != -1
+                     || data.text.toUpperCase().indexOf(params.term.toUpperCase()) != -1
+                  ) {
+
+                     if (child.text.indexOf('>') !== -1 || child.text.indexOf('<') !== -1) {
+                        // escape text, if it contains chevrons (can already be escaped prior to this point :/)
+                        child.text = jQuery.fn.select2.defaults.defaults.escapeMarkup(child.text);
+                     }
+                     filteredChildren.push(child);
+                  }
+               });
+
+               // If we matched any of the group's children, then set the matched children on the group
+               // and return the group object
+               if (filteredChildren.length) {
+                  var modifiedData = $.extend({}, data, true);
+                  modifiedData.children = filteredChildren;
+
+                  // You can return modified objects from here
+                  // This includes matching the `children` how you want in nested data sets
+                  return modifiedData;
+               }
+
+               // Return `null` if the term should not be displayed
+               return null;
+            },
+            templateResult: templateResult,
+            templateSelection: templateSelection
+         })
+         .bind('setValue', function(e, value) {
+            $('#dropdown_newprofile648177860').val(value).trigger('change');
+         })
+         $('label[for=dropdown_newprofile648177860]').on('click', function(){ $('#dropdown_newprofile648177860').select2('open'); });
+      });
+
+//]]>
+</script>
+<input type="hidden" name="_glpi_csrf_token" value="283a8db1dc16f70c762a703a5c4fbf33" />
+</form>
+</li><li class='profile-selector'><script type='text/javascript'>
+var entity_window;$(function() {entity_window=$('<div />').dialog({
+
+         width:800,
+
+         autoOpen: false,
+
+         height:400,
+
+         modal: true,
+
+         title: "Sélectionnez l\'entité souhaitée",
+
+         open: function (){
+            var fields = {"target":"\/front\/central.php"};
+            $(this).load('/ajax/entitytree.php', fields);
+         }
+      });
+});</script>
+<a onclick='entity_window.dialog("open");' href='#modal_entity_content' title="Ville de Fontenay-sous-Bois (Arborescence)" class='entity_select' id='global_entity_select'>Ville de Fontenay-sous-Bois (Arborescence)</a></li></ul></div></div>
+<span class='fa-stack fa-lg' id='backtotop' style='display: none'><i class='fa fa-circle fa-stack-2x primary-fg-inverse'></i><a href='#' class='fa fa-arrow-up fa-stack-1x primary-fg' title='Retour en haut de page'><span class='sr-only'>Top of the page</span></a></span><div id='page' ><div class='navigationheader'><table class='tab_cadre_pager'><tr class='tab_bg_2'><td class='left'><a href='/front/ticket.form.php?id=46229&amp;'><img src='/pics/first.png' alt="Premier" title="Premier" class='pointer'></a></td><td class='left'><a href='/front/ticket.form.php?id=46146&amp;' id='previouspage'><img src='/pics/left.png' alt="Pr&eacute;c&eacute;dent" title="Pr&eacute;c&eacute;dent" class='pointer'></a></td><script type="text/javascript">
+//<![CDATA[
+
+$("body").keydown(function(e) {
+                       if ($("input, textarea").is(":focus") === false) {
+                          if(e.keyCode == 37 && e.ctrlKey) {
+                            window.location = $("#previouspage").attr("href");
+                          }
+                       }
+                  });
+
+//]]>
+</script><td><a href="/front/ticket.php?sort=19&order=DESC&criteria%5B0%5D%5Bfield%5D=8&criteria%5B0%5D%5Bsearchtype%5D=equals&criteria%5B0%5D%5Bvalue%5D=213&criteria%5B1%5D%5Blink%5D=AND&criteria%5B1%5D%5Bfield%5D=12&criteria%5B1%5D%5Bsearchtype%5D=equals&criteria%5B1%5D%5Bvalue%5D=notold&&start=0" title='Liste'><i class='fa fa-list-alt fa-2x pointer'><span class='sr-only'>Liste...</span></i></a></td><td class='b big'><span class='status'><i class='itilstatus fa fa-circle-o assigned' title='En cours (Attribué)'></i></span>Nouvel Arrivant - Jérôme SANTOS - 19/02/24 (Ville de Fontenay-sous-Bois)</td><td>7/72</td><td class='right'><a href='/front/ticket.form.php?id=46240&amp;' id='nextpage'><img src='/pics/right.png' alt="Suivant" title="Suivant" class='pointer'></a></td><script type="text/javascript">
+//<![CDATA[
+
+$("body").keydown(function(e) {
+                       if ($("input, textarea").is(":focus") === false) {
+                          if(e.keyCode == 39 && e.ctrlKey) {
+                            window.location = $("#nextpage").attr("href");
+                          }
+                       }
+                  });
+
+//]]>
+</script><td class='right'><a href='/front/ticket.form.php?id=39407&amp;'><img src="/pics/last.png" alt="Dernier" title="Dernier" class='pointer'></a></td></tr></table></div><div class='glpi_tabs '><div id='tabspanel' class='center-h'></div><div id='tabs1433553818' class='center vertical'><ul><li><a title="Ticket"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Ticket$main&amp;id=46236&amp;'>Ticket</a></li><li><a title="Traitement du ticket 3"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Ticket$1&amp;id=46236&amp;'>Traitement du ticket <sup class='tab_nb'>3</sup></a></li><li><a title="Statistiques"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Ticket$4&amp;id=46236&amp;'>Statistiques</a></li><li><a title="Validations"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=TicketValidation$1&amp;id=46236&amp;'>Validations</a></li><li><a title="Base de connaissances"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=KnowbaseItem_Item$1&amp;id=46236&amp;'>Base de connaissances</a></li><li><a title="Éléments"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Item_Ticket$1&amp;id=46236&amp;'>Éléments</a></li><li><a title="Tâches de projet"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=ProjectTask_Ticket$1&amp;id=46236&amp;'>Tâches de projet</a></li><li><a title="Problèmes"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Problem_Ticket$1&amp;id=46236&amp;'>Problèmes</a></li><li><a title="Changements"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Change_Ticket$1&amp;id=46236&amp;'>Changements</a></li><li><a title="Historique 13"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=Log$1&amp;id=46236&amp;'>Historique <sup class='tab_nb'>13</sup></a></li><li><a title="Tous"  href='/ajax/common.tabs.php?_target=/front/ticket.form.php&amp;_itemtype=Ticket&amp;_glpi_tab=-1&amp;id=46236&amp;'>Tous</a></li></ul></div><script type="text/javascript">
+//<![CDATA[
+
+
+         $(function(){
+         forceReload1433553818 = false;
+         $('#tabs1433553818').tabs({
+            active: 1,
+            // Loading indicator
+            beforeLoad: function (event, ui) {
+               if ($(ui.panel).html()
+                   && !forceReload1433553818) {
+                  event.preventDefault();
+               } else {
+                  forceReload1433553818 = false;
+                  var _loader = $('<div id=\'loadingtabs\'><div class=\'loadingindicator\'>Chargement...</div></div>');
+                  ui.panel.html(_loader);
+
+                  ui.jqXHR.always(function() {
+                     $('#loadingtabs').remove();
+                  });
+
+                  ui.jqXHR.fail(function(e) {
+                     console.log(e);
+                     if (e.statusText != 'abort') {
+                        ui.panel.html(
+                           '<div class=\'error\'><h3>Une erreur est survenue au chargement des contenus !</h3><p>Vérifiez les logs de GLPI ou contactez votre administrateur.<br/>ou <a href=\'#\' onclick=\'return reloadTab()\'>essayez de recharger</a></p></div>'
+                        );
+                     }
+                  });
+               }
+
+               var newIndex = ui.tab.parent().children().index(ui.tab);
+               $.get('/ajax/updatecurrenttab.php',
+                  { itemtype: 'Ticket', id: '46236', tab: newIndex });
+            },
+            ajaxOptions: {type: 'POST'}
+         });$('#tabs1433553818').tabs().addClass( 'ui-tabs-vertical ui-helper-clearfix' );$('#tabs1433553818').removeClass( 'ui-corner-top' ).addClass( 'ui-corner-left' );});// force reload global function
+            function reloadTab(add) {
+               forceReload1433553818 = true;
+               var current_index = $('#tabs1433553818').tabs('option','active');
+
+               // remove scroll event bind, select2 bind it on parent with scrollbars (the tab currently)
+               // as the select2 disapear with this tab reload, remove the event to prevent issues (infinite scroll to top)
+               $('#tabs1433553818 .ui-tabs-panel[aria-expanded=true]').unbind('scroll');
+
+               // Save tab
+               var currenthref = $('#tabs1433553818 ul>li a').eq(current_index).attr('href');
+               $('#tabs1433553818 ul>li a').eq(current_index).attr('href',currenthref+'&'+add);
+               $('#tabs1433553818').tabs( 'load' , current_index);
+
+               // Restore tab
+               $('#tabs1433553818 ul>li a').eq(current_index).attr('href',currenthref);
+            };
+
+//]]>
+</script></div></div><div id='footer' ><table><tr><td class='right'><a href="http://glpi-project.org/" title="Powered by Teclib and contributors" class="copyright">GLPI 9.3.4 Copyright (C) 2015-2018 Teclib' and contributors</a></td></tr></table></div><script type="text/javascript" src="/lib/leaflet/leaflet.js?v=9.3.4"></script><script type="text/javascript" src="/lib/spin.js/spin.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/leaflet/plugins/leaflet.spin/leaflet.spin.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/leaflet/plugins/Leaflet.markercluster/leaflet.markercluster.js?v=9.3.4"></script><script type="text/javascript" src="/lib/leaflet/plugins/Leaflet.awesome-markers/leaflet.awesome-markers.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/leaflet/plugins/leaflet-control-osm-geocoder/Control.OSMGeocoder.js?v=9.3.4"></script><script type="text/javascript" src="/lib/leaflet/plugins/Leaflet.fullscreen/Leaflet.fullscreen.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/rateit/jquery.rateit.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/tiny_mce/lib/tinymce.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/jquery-file-upload/js/jquery.fileupload.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/jquery-file-upload/js/jquery.iframe-transport.min.js?v=9.3.4"></script><script type="text/javascript" src="/js/fileupload.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/fuzzy/fuzzy-min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/jquery.hotkeys.js?v=9.3.4"></script><script type="text/javascript" src="/js/fuzzysearch.min.js?v=9.3.4"></script><script type="text/javascript" src="/js/log_filters.min.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jquery/i18n/jquery.ui.datepicker-fr.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/jquery-ui-timepicker-addon/i18n/jquery-ui-timepicker-fr.js?v=9.3.4"></script><script type="text/javascript" src="/lib/jqueryplugins/select2/js/i18n/fr.js?v=9.3.4"></script><script type="text/javascript" src="/js/common.min.js?v=9.3.4"></script><script type="text/javascript">
+//<![CDATA[
+
+
+      window.old_alert = window.alert;
+      window.alert = function(message, caption) {
+         // Don't apply methods on undefined objects... ;-) #3866
+         if(typeof message == 'string') {
+            message = message.replace('\n', '<br>');
+         }
+         caption = caption || 'Information';
+         $('<div/>').html(message).dialog({
+            title: caption,
+            buttons: {
+               OK: function() {
+                  $(this).dialog('close');
+               }
+            },
+            dialogClass: 'glpi_modal',
+            open: function(event, ui) {
+               $(this).parent().prev('.ui-widget-overlay').addClass('glpi_modal');
+            },
+            close: function(){
+               $(this).remove();
+            },
+            draggable: true,
+            modal: true,
+            resizable: false,
+            width: 'auto'
+         });
+      };
+
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+
+
+      var confirmed = false;
+      var lastClickedElement;
+
+      // store last clicked element on dom
+      $(document).click(function(event) {
+          lastClickedElement = $(event.target);
+      });
+
+      // asynchronous confirm dialog with jquery ui
+      var newConfirm = function(message, caption) {
+         message = message.replace('\n', '<br>');
+         caption = caption || '';
+
+         $('<div/>').html(message).dialog({
+            title: caption,
+            dialogClass: 'fixed glpi_modal',
+            buttons: {
+               'Confirmer': function () {
+                  $(this).dialog('close');
+                  confirmed = true;
+
+                  //trigger click on the same element (to return true value)
+                  lastClickedElement.click();
+
+                  // re-init confirmed (to permit usage of 'confirm' function again in the page)
+                  // maybe timeout is not essential ...
+                  setTimeout(function(){  confirmed = false; }, 100);
+               },
+               'Annuler': function () {
+                  $(this).dialog('close');
+                  confirmed = false;
+               }
+            },
+            open: function(event, ui) {
+               $(this).parent().prev('.ui-widget-overlay').addClass('glpi_modal');
+            },
+            close: function () {
+                $(this).remove();
+            },
+            draggable: true,
+            modal: true,
+            resizable: false,
+            width: 'auto'
+         });
+      };
+
+      window.nativeConfirm = window.confirm;
+
+      // redefine native 'confirm' function
+      window.confirm = function (message, caption) {
+         // if watched var isn't true, we can display dialog
+         if(!confirmed) {
+            // call asynchronous dialog
+            newConfirm(message, caption);
+         }
+
+         // return early
+         return confirmed;
+      };
+
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+
+
+         var CFG_GLPI  = {
+            'url_base': 'https://glpi.fsb.priv',
+            'root_doc': '',
+         };
+      
+
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+
+
+      displayAjaxMessageAfterRedirect = function() {
+         // attach MESSAGE_AFTER_REDIRECT to body
+         $('.message_after_redirect').remove();
+         $.ajax({
+            url:  '/ajax/displayMessageAfterRedirect.php',
+            success: function(html) {
+               $('body').append(html);
+            }
+         });
+      }
+
+//]]>
+</script><script type="text/javascript" src="/plugins/datainjection/js/datainjection.min.js?v=2.6.4"></script><script type="text/javascript" src="/plugins/mreporting/lib/protovis/protovis.min.js?v=1.5.3"></script><script type="text/javascript" src="/plugins/mreporting/lib/protovis-msie/protovis-msie.min.js?v=1.5.3"></script><script type="text/javascript" src="/plugins/mreporting/lib/jquery.tipsy/jquery.tipsy.min.js?v=1.5.3"></script><script type="text/javascript" src="/plugins/mreporting/lib/jquery.tipsy/tipsy.js?v=1.5.3"></script><script type="text/javascript" src="/plugins/fusioninventory/js/footer.min.js?v=9.3+1.4"></script><script type="text/javascript" src="/plugins/vip/vip.js?v=1.5.2"></script><script type="text/javascript" src="/plugins/vip/vip_load_scripts.js?v=1.5.2"></script></body></html>
+
